@@ -74,13 +74,20 @@ for i = 1:iTotalRows
     end
 end
 
-matHeader = ["Customer", "IAT", "AT", "ST", "TSB", "TSE", "TCW", "TCS", "TSI"];
-matQueue = [matQueue, matSim];
-matTotal = [ "Total", sum(matQueue(:,IAT)), "-", sum(matQueue(:,ST)), "-", sum(matSim(:,TSE)), "-", sum(matSim(:,TCS)), sum(matSim(:,TSI))];
-matQueue = [matQueue ; matTotal];
-matQueue = [matHeader; matQueue];
+% Output Generation
 
-% Output
-disp(matQueue);
+% Making a total sum for specific columns that needed one
+matTotal = [ "Total", sum(matQueue(:,IAT)), "-", sum(matQueue(:,ST)), "-", sum(matSim(:,TSE)), "-", sum(matSim(:,TCS)), sum(matSim(:,TSI))];
+
+% Contactination of Queue input and Simulation output with addtition to the
+% total row in matOutput
+matOutput = [matQueue, matSim ; matTotal];
+
+% Generation of table with matOutput and its table header with tOutput
+tOutput = array2table(matOutput, 'VariableNames', ["Customer", "IAT", "AT", "ST", "TSB", "TSE", "TCW", "TCS", "TSI"]);
+tOutput.Properties.Description = 'Single Server Program';
+
+% Displaying tOutput
+disp(tOutput);
 
 
