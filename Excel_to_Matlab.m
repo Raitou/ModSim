@@ -27,6 +27,7 @@ studentGrade = string(studentGrade);
 
 % algorithm part: this loops to every row and generate an average and puts
 % it in the end of the student grade table. 
+barryGrade = [];
 for i = 1:iTotalRows
     grades = [];
     average = [];
@@ -43,6 +44,7 @@ for i = 1:iTotalRows
     end
     % generates a mean of the linear array before emptying it
     average(end+1) = mean(grades); %#ok<SAGROW>
+    barryGrade(end+1) = mean(grades); %#ok<SAGROW>
     % parsing the average at the end of the average.
     studentGrade(i, iTotalCols+1) = string(average);
 end
@@ -50,6 +52,10 @@ end
 % generating a header for the table
 tOutput = array2table(studentGrade, 'VariableNames', ["Student ID", "Quiz 1", "Quiz 2", "Quiz 3", "Average"]);
 % displaying the table
+xaxis = str2double(studentGrade(1:3));
+bar(xaxis, histo, 0.5, 'FaceColor', [0.2 0.2 0.5])
+ylabel('Mean')
+xlabel('Student ID')
 fig = uifigure;
 uitable(fig, 'Data', studentGrade, 'ColumnName', ["Student ID", "Quiz 1", "Quiz 2", "Quiz 3", "Average"], 'position',[20 20 500 400]);
 display(tOutput)
