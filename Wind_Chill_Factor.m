@@ -1,8 +1,8 @@
 % WCF Program
 %   Author: Fernad Corbin (201811618)
 %   Contact: 201811618@fit.edu.ph
-%   Author: Angelito Tangtang (2018XXXXX)
-%   Contact: 2018XXXXX@fit.edu.ph
+%   Author: Angelito Tangtang (201810037)
+%   Contact: 201810037@fit.edu.ph
 %
 % Description: This program creates a table showing WCF's for temperatur
 % ranging from -20 to 55 in steps of five, and wind speeds ranging from 0
